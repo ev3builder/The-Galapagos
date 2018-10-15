@@ -22,6 +22,26 @@
         </ul>
       </div>
     </nav>
+    <div class="container">
+      <div class="scroll">
+        <div class="flex-center">
+          <div class="card m-5">
+            <div class="card-body" style="background-color: #FFFEFF; color: #000300">
+              <h1 class="card-text center-align" id="welcome"><b>Welcome Message</b></h1>
+              <p class="card-footer:last-child" style="text-align: right; font-size: 14px">
+                <form id="form1">
+                  <div class="input-field">
+                    <input type="text" id="inputbox">
+                    <label class="active" for="name">Name</label>
+                  </div>
+                  <button class="btn" name="button" onclick="submitForm(this.form)"><i class="large material-icons">send</i></button>
+                </form>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <br>
     <br>
     <div class="row">
@@ -47,26 +67,6 @@
       </div>
       <div class="card-action">
         <a href="https://faceswaponline.com/wp-content/uploads/2018/07/Yourwelcome-c010653f498f2838ee70ea6e43c5632d.jpg">Turtles are endangered, learn more here.</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="scroll">
-    <div class="flex-center">
-      <div class="card m-5">
-        <div class="card-body" style="background-color: #FFFEFF; color: #000300">
-          <h1 class="card-text center-align" id="welcome"><b>Welcome Message</b></h1>
-          <p class="card-footer:last-child" style="text-align: right; font-size: 14px">
-            <form id="form1">
-              <div class="input-field">
-                <input type="text" id="inputbox">
-                <label class="active" for="name">Name</label>
-              </div>
-              <button class="btn" name="button" onclick="submitForm(this.form)"><i class="large material-icons">send</i></button>
-            </form>
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -154,3 +154,19 @@
   <footer>
     Made 8/27/2018
   </footer>
+  <script>
+  function loadSite(){
+    if(document.cookie.length > -1){
+      document.getElementById("welcome").innerHTML = "Welcome " + document.cookie + "!!!";
+    }
+    else{
+      document.getElementById("welcome").innerHTML = "";
+    }
+  }
+  function submitForm(form) {
+    var name = form.inputbox.value;
+    document.cookie = name;
+    document.getElementById("welcome").innerHTML = "Welcome " + name + "!!!";
+    location.reload();
+  }
+</script>
